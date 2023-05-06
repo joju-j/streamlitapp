@@ -18,8 +18,8 @@ uploaded_file = st.file_uploader(" ", type=['jpg','png','jpeg'])
 picture = st.camera_input("Take a picture")
 
 if picture is not None and uploaded_file is None:
-    with open(os.path.join("C:/Users/hp/streamlit-test/",picture.name),"wb") as f:
-         f.write(picture.getbuffer())
+    # with open(os.path.join("C:/Users/hp/streamlit-test/",picture.name),"wb") as f:
+        #  f.write(picture.getbuffer())
     col1, col2 = st.columns(2)
     with col1:
         st.header("Before")
@@ -36,8 +36,8 @@ if picture is not None and uploaded_file is None:
 
 if uploaded_file is not None and picture is None:
     image = Image.open(uploaded_file)
-    with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
-         f.write(uploaded_file.getbuffer())
+    # with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
+        #  f.write(uploaded_file.getbuffer())
 
     col1, col2 = st.columns(2)
     with col1:
