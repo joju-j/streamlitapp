@@ -4,6 +4,7 @@ from io import StringIO
 import os
 import urllib
 import urllib.request
+import time
 # to run type python3.11 -m streamlit run main.py
 
 def download_image(url, file_path, file_name):
@@ -33,6 +34,20 @@ if picture is not None and uploaded_file is None:
         )
     with col2:
         st.header("After")
+        progress_text = "Operation in progress. Please wait."
+        my_bar = st.progress(0, text=progress_text)
+
+        for percent_complete in range(100):
+            time.sleep(0.1)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+        
+        btn = st.download_button(
+            label="Download image",
+            data=picture,
+            file_name="dress.png",
+            mime="image/png"
+            )
+
 
 if uploaded_file is not None and picture is None:
     image = Image.open(uploaded_file)
@@ -46,3 +61,15 @@ if uploaded_file is not None and picture is None:
 
     with col2:
         st.header("After")
+        progress_text = "Operation in progress. Please wait."
+        my_bar = st.progress(0, text=progress_text)
+        for percent_complete in range(100):
+            time.sleep(0.1)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+        
+        btn = st.download_button(
+            label="Download image",
+            data=uploaded_file,
+            file_name="dress.png",
+            mime="image/png"
+            )
