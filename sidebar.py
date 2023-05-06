@@ -12,7 +12,7 @@ def sidebar():
 
         st.markdown("---")
         st.markdown("""
-        ### Purpose 
+        ### :thought_balloon: Purpose 
         \nThe fashion industry is a highly demanding and fast-growing sector, 
         with new trends emerging every day. 
         In order to keep up with the latest trends and meet the demands of consumers, 
