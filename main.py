@@ -52,11 +52,11 @@ uploaded_file = st.file_uploader(" ", type=['jpg','png','jpeg'])
         #     )
 
 
-if uploaded_file is not None : #and picture is none:
+if uploaded_file is not None : #and picture is none:    
     # image = Image.open(uploaded_file)
     # with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
     #        f.write(uploaded_file.getbuffer())
-    sketch2fashion(uploaded_file)
+    sketch2fashion(uploaded_file,1)
     # col1, col2 = st.columns(2)
     # with col1:
     #     st.header("Before :pencil:")

@@ -35,7 +35,7 @@ transform = transforms.Compose([
 ])
 
 
-def sketch2fashion(input_image_path):
+def sketch2fashion(input_image_path,output_image_path):
     input_image = Image.open(input_image_path)
     
     # Preprocess the input image
