@@ -19,8 +19,8 @@ uploaded_file = st.file_uploader(" ", type=['jpg','png','jpeg'])
 picture = st.camera_input("Take a picture ! :camera_with_flash:")
 
 if picture is not None and uploaded_file is None:
-    # with open(os.path.join("C:/Users/hp/streamlit-test/",picture.name),"wb") as f:
-        #  f.write(picture.getbuffer())
+    with open(os.path.join("C:/Users/hp/streamlit-test/",picture.name),"wb") as f:
+          f.write(picture.getbuffer())
     sketch2fashion(picture.name,"converted.png")
     col1, col2 = st.columns(2)
     with col1:
@@ -42,7 +42,7 @@ if picture is not None and uploaded_file is None:
             my_bar.progress(percent_complete + 1, text=progress_text)
         
         sketch=Image.open("converted.png")
-        st.Image(sketch)
+        st.image(sketch)
 
         # btn = st.download_button(
         #     label="Download image :arrow_down:",
@@ -54,8 +54,8 @@ if picture is not None and uploaded_file is None:
 
 if uploaded_file is not None and picture is None:
     image = Image.open(uploaded_file)
-    # with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
-    #       f.write(uploaded_file.getbuffer())
+    with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
+           f.write(uploaded_file.getbuffer())
     sketch2fashion(uploaded_file.name,"converted.png")
     col1, col2 = st.columns(2)
     with col1:
@@ -71,6 +71,10 @@ if uploaded_file is not None and picture is None:
         
         sketch=Image.open("converted.png")
         st.image(sketch)
+        if st.button("Regenerate respone :arrows_counterclockwise:" ):
+            sketch2fashion("converted.png","converted.png")
+            sketch=Image.open("converted.png")
+            st.image(sketch)
         # btn = st.download_button(
         #     label="Download image :arrow_down:",
         #     data=,
