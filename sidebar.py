@@ -41,7 +41,7 @@ def sidebar():
                     ## :spiral_note_pad: About\n
                     This Application was created as part of our _Final Year Project_ for Federal Institute Of
                     Science And Technology.\n
-                    ### :bow_and_arrow: Team Members:
+                    ### :bow_and_arrow: :blue[Team Members]:
                     :female-student: Anupama RH\n
                     :female-student: Ayisha EA\n
                     :male-student: Emmanuel Jojy\n
