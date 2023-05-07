@@ -11,7 +11,7 @@ from transform import sketch2fashion
 # to run type python3.11 -m streamlit run main.py
 sidebar()
 
-st.title(':red[Generating Clothing Visualization Using Sketches] :dress:')
+st.title(':blue[Generating Clothing Visualization Using Sketches] :dress:')
 st.subheader('Upload your sketch here or take a picture to see the results:exclamation::exclamation:')
 
 uploaded_file = st.file_uploader(" ", type=['jpg','png','jpeg'])
