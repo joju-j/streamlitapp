@@ -54,8 +54,8 @@ if picture is not None and uploaded_file is None:
 
 if uploaded_file is not None and picture is None:
     image = Image.open(uploaded_file)
-    with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
-          f.write(uploaded_file.getbuffer())
+    # with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
+    #       f.write(uploaded_file.getbuffer())
     sketch2fashion(uploaded_file.name,"converted.png")
     col1, col2 = st.columns(2)
     with col1:
