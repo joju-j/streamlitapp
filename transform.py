@@ -38,7 +38,7 @@ transform = transforms.Compose([
 
 def sketch2fashion(input_image_path,output_image_path):
     input_image = Image.open(input_image_path)
-    
+    image_size = input_image.size
     # Preprocess the input image
     input_tensor = transform(input_image).unsqueeze(0)
 
@@ -50,6 +50,7 @@ def sketch2fashion(input_image_path,output_image_path):
     output_image = transforms.functional.to_pil_image(
         output_tensor.squeeze().cpu())
     # output_image.save(output_image_path)
+    output_image = output_image.resize(image_size)
     
     col1, col2 = st.columns(2)
     with col1:
