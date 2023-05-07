@@ -35,9 +35,9 @@ transform = transforms.Compose([
 ])
 
 
-def sketch2fashion(input_image_path, output_image_path):
+def sketch2fashion(input_image_path):
     input_image = Image.open(input_image_path)
-
+    
     # Preprocess the input image
     input_tensor = transform(input_image).unsqueeze(0)
 
@@ -48,7 +48,20 @@ def sketch2fashion(input_image_path, output_image_path):
     # Postprocess the output image
     output_image = transforms.functional.to_pil_image(
         output_tensor.squeeze().cpu())
-    output_image.save(output_image_path)
+    # output_image.save(output_image_path)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.header("Before :pencil:")
+        st.image(input_image)  
+
+    with col2:
+        st.header("After :lower_left_paintbrush:")
+        progress_text = "Operation in progress. Please wait. :clock2:"
+        my_bar = st.progress(0, text=progress_text)
+        for percent_complete in range(100):
+            my_bar.progress(percent_complete + 1, text=progress_text)
+        st.image(output_image)    
    
 
 
