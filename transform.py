@@ -1,11 +1,10 @@
 from collections import OrderedDict
 import torch
-import io
 from PIL import Image
 import torchvision.transforms as transforms
 from networks import define_G
-import streamlit as st
-import time
+from columns import columns
+
 # Define the path to your pre-trained model
 model_path = "model.pth"
 
@@ -49,44 +48,9 @@ def sketch2fashion(input_image_path,output_image_path):
     # Postprocess the output image
     output_image = transforms.functional.to_pil_image(
         output_tensor.squeeze().cpu())
-    # output_image.save(output_image_path)
+    #Resize image to original size
     output_image = output_image.resize(image_size)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.header("Before :pencil:")
-        st.image(input_image)
-        print("input image type is",type(input_image),"and",input_image)
-        buffer = io.BytesIO()   
-        input_image.save(buffer, format='JPEG', quality=75)
-        btn = st.download_button(
-         label="Download image :arrow_down:",
-         data=buffer,
-         file_name="sketch.png",
-         mime="image/png"
-        )
 
-    with col2:
-        st.header("After :lower_left_paintbrush:")
-        progress_text = "Operation in progress. Please wait. :clock2:"
-        my_bar = st.progress(0, text=progress_text)
-        for percent_complete in range(100):
-            time.sleep(0.025)
-            my_bar.progress(percent_complete + 1, text=progress_text)
-        my_bar.empty()
-        st.image(output_image)
-        output_buffer = io.BytesIO()   
-        output_image.save(output_buffer, format='JPEG', quality=75)
-        btn = st.download_button(
-         label="Download image :arrow_down:",
-         data=output_buffer,
-         file_name="dress.png",
-         mime="image/png"
-        )
-    
+    #Invoke Columns and output
+    columns(input_image,output_image)
 
-
-
-# src = "testA.png"
-# tar = "testB.png"
-# sketch2fashion(src, tar)

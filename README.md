@@ -10,3 +10,7 @@ cd Sketch2Fashion
 pip install -r requirements.txt
 python transform.py
 ```
+
+## To visit the app to run the model
+https://joju-j-streamlittest-main-mbmsgf.streamlit.app/
+Made using Streamlit

@@ -1,5 +1,5 @@
 import streamlit as st
-
+#Creates Sidebar with markdown text
 def sidebar():
     with st.sidebar:
     
