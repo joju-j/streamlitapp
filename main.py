@@ -7,7 +7,7 @@ import urllib.request
 import time
 import importlib
 from sidebar import sidebar  
-
+from transform import sketch2fashion
 # to run type python3.11 -m streamlit run main.py
 sidebar()
 
@@ -21,6 +21,7 @@ picture = st.camera_input("Take a picture ! :camera_with_flash:")
 if picture is not None and uploaded_file is None:
     # with open(os.path.join("C:/Users/hp/streamlit-test/",picture.name),"wb") as f:
         #  f.write(picture.getbuffer())
+    sketch2fashion(picture.name,"converted.png")
     col1, col2 = st.columns(2)
     with col1:
         st.header("Before :pencil:")
@@ -38,22 +39,24 @@ if picture is not None and uploaded_file is None:
         my_bar = st.progress(0, text=progress_text)
 
         for percent_complete in range(100):
-            time.sleep(0.1)
             my_bar.progress(percent_complete + 1, text=progress_text)
         
-        btn = st.download_button(
-            label="Download image :arrow_down:",
-            data=picture,
-            file_name="dress.png",
-            mime="image/png"
-            )
+        sketch=Image.open("converted.png")
+        st.Image(sketch)
+
+        # btn = st.download_button(
+        #     label="Download image :arrow_down:",
+        #     data=picture,
+        #     file_name="dress.png",
+        #     mime="image/png"
+        #     )
 
 
 if uploaded_file is not None and picture is None:
     image = Image.open(uploaded_file)
-    # with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
-        #  f.write(uploaded_file.getbuffer())
-
+    with open(os.path.join("C:/Users/hp/streamlit-test/",uploaded_file.name),"wb") as f:
+          f.write(uploaded_file.getbuffer())
+    sketch2fashion(uploaded_file.name,"converted.png")
     col1, col2 = st.columns(2)
     with col1:
         st.header("Before :pencil:")
@@ -64,12 +67,13 @@ if uploaded_file is not None and picture is None:
         progress_text = "Operation in progress. Please wait. :clock2:"
         my_bar = st.progress(0, text=progress_text)
         for percent_complete in range(100):
-            time.sleep(0.1)
             my_bar.progress(percent_complete + 1, text=progress_text)
         
-        btn = st.download_button(
-            label="Download image :arrow_down:",
-            data=uploaded_file,
-            file_name="dress.png",
-            mime="image/png"
-            )
+        sketch=Image.open("converted.png")
+        st.image(sketch)
+        # btn = st.download_button(
+        #     label="Download image :arrow_down:",
+        #     data=,
+        #     file_name="dress.png",
+        #     mime="image/png"
+        #     )
