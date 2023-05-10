@@ -1,3 +1,2 @@
-models/pix2pix.pth filter=lfs diff=lfs merge=lfs -text
 models/cyclegan-resnet.pth filter=lfs diff=lfs merge=lfs -text
 models/cyclegan-unet.pth filter=lfs diff=lfs merge=lfs -text
