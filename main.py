@@ -6,9 +6,9 @@ from transform import create_generator, sketch2fashion
 # to run type python3.11 -m streamlit run main.py
 
 models = {
-    'resnet': {'path': 'models/cyclegan-resnet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "resnet_9blocks", 'norm': "instance", },
-    'unet': {'path': 'models/cyclegan-unet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "unet_256", 'norm': "instance", },
-    'pix2pix': {'path': 'models/pix2pix.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "unet_256", 'norm': "batch", },
+    'resnet': {'path': 'cyclegan-resnet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "resnet_9blocks", 'norm': "instance", },
+    'unet': {'path': 'cyclegan-unet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "unet_256", 'norm': "instance", },
+    'pix2pix': {'path': 'pix2pix.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "unet_256", 'norm': "batch", },
 }
 # set up generators
 resnet = create_generator(models['resnet'])
