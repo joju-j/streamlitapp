@@ -65,13 +65,13 @@ def sketch2fashion(generator_model, input_image_path, output_image_path,count,ty
         
         #Invoke Columns and output
         columns(input_image,output_image_unet,count,types)
-    elif types=="pix2pix":  
-        output_image_pix2pix = tensor2im(output_tensor)
-        print(type(output_image_pix2pix))
-        # output_image = output_image.resize(image_size)
+    # elif types=="pix2pix":  
+    #     output_image_pix2pix = tensor2im(output_tensor)
+    #     print(type(output_image_pix2pix))
+    #     # output_image = output_image.resize(image_size)
         
-        #Invoke Columns and output
-        columns(input_image,output_image_pix2pix,count,types)
+    #     #Invoke Columns and output
+    #     columns(input_image,output_image_pix2pix,count,types)
 
 
 

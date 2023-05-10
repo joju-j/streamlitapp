@@ -20,8 +20,8 @@ print("CycleGAN (Gen: Resnet): Ready", end='\n\n')
 unet = create_generator(models['unet'])
 print("CycleGAN (Gen: U -NET): Ready", end='\n\n')
 
-pix2pix = create_generator(models['pix2pix'])
-print("Pix 2 Pix (Gen: U NET): Ready", end='\n\n')
+# pix2pix = create_generator(models['pix2pix'])
+# print("Pix 2 Pix (Gen: U NET): Ready", end='\n\n')
 
 #Invokes sidebar and details
 sidebar()
@@ -41,9 +41,9 @@ if picture is not None and uploaded_file is None:
     types="unet"
     sketch2fashion(unet, picture, 1,count,types)
     count+=1
-    types="pix2pix"
-    sketch2fashion(pix2pix, picture, 1,count,types)
-    count+=1
+    # types="pix2pix"
+    # sketch2fashion(pix2pix, picture, 1,count,types)
+    # count+=1
 
 
 
@@ -57,6 +57,6 @@ if uploaded_file is not None and picture is None:
     types="unet"
     sketch2fashion(unet, uploaded_file, 1,count,types)
     count+=1
-    types='pix2pix'
-    sketch2fashion(pix2pix, uploaded_file, 1,count,types)
-    count+=1
+    # types='pix2pix'
+    # sketch2fashion(pix2pix, uploaded_file, 1,count,types)
+    # count+=1
