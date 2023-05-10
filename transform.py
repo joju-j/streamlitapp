@@ -30,7 +30,7 @@ def create_generator(model):
         new_dict[k] = v
     generator_model = define_G(input_nc=model['input_nc'], output_nc=model['output_nc'], netG=model['netG'],
                                norm=model['norm'], ngf=64, use_dropout=False, init_gain=0.02, gpu_ids=[])
-    generator_model.load_state_dict(model_dict)
+    generator_model.load_state_dict(new_dict)
 
     # Set the model to evaluation mode
     generator_model.eval()
