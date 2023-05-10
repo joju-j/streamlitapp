@@ -8,8 +8,6 @@ from lib.networks import define_G
 from transform import sketch2fashion,create_generator
 # to run type python3.11 -m streamlit run main.py
 
-
-
 models = {
     'resnet': {'path': 'cyclegan-resnet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "resnet_9blocks", 'norm': "instance", },
     'unet': {'path': 'cyclegan-unet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "unet_256", 'norm': "instance", },
