@@ -5,22 +5,10 @@ from sidebar import sidebar
 import torch
 from collections import OrderedDict 
 from lib.networks import define_G
-from transform import sketch2fashion
+from transform import sketch2fashion,create_generator
 # to run type python3.11 -m streamlit run main.py
 
-def create_generator(model):
-    model_dict = torch.load(model['path'])
-    new_dict = OrderedDict()
-    for k, v in model_dict.items():
-        new_dict[k] = v
-    generator_model = define_G(input_nc=model['input_nc'], output_nc=model['output_nc'], netG=model['netG'],
-                               norm=model['norm'], ngf=64, use_dropout=False, init_gain=0.02, gpu_ids=[])
-    generator_model.load_state_dict(new_dict)
 
-    # Set the model to evaluation mode
-    generator_model.eval()
-
-    return generator_model
 
 models = {
     'resnet': {'path': 'cyclegan-resnet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "resnet_9blocks", 'norm': "instance", },

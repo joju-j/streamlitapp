@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 from lib.networks import define_G
 from lib.util import tensor2im, save_image
 from columns import columns
-from main import models
+
 count=0
 # models = {
 #     'resnet': {'path': 'models/cyclegan-resnet.pth', 'input_nc': 3, 'output_nc': 3, 'netG': "resnet_9blocks", 'norm': "instance", },
